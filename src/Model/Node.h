@@ -9,7 +9,6 @@
 #define MODEL_NODE_H_
 
 template <class Type>
-
 class Node
 {
 private:
@@ -17,9 +16,11 @@ private:
 	Node * pointers;		//Pointer to the array of Nodes that are linked to this Node
 public:
 	Node();
+	Node(Type value);
 	virtual ~Node();
 	Type getValue();
 	Node * getPointers();
+
 };
 
 #endif /* MODEL_NODE_H_ */
