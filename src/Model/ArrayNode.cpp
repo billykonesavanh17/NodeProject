@@ -12,8 +12,6 @@ template<class Type>
 ArrayNode<Type>::ArrayNode() : Node<Type>()
 {
 	this -> next = nullptr;
-
-
 }
 
 template<class Type>
@@ -36,5 +34,14 @@ template<class Type>
 ArrayNode<Type> ::~ArrayNode()
 {
 	// TODO Auto-generated destructor stub
+}
+
+template <class Type>
+void ArrayNode<Type> ::
+
+template <class Type>
+ArrayNode<Type> * ArrayNode<Type> :: getNext()
+{
+	return this -> next;
 }
 

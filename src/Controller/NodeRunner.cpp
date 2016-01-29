@@ -1,10 +1,9 @@
 /*
  * NodeRunner.cpp
  *
- *  Created on: Jan 27, 2016
+ *  Created on: Jan 29, 2016
  *      Author: bkon4208
  */
-
 #include "NodeController.h"
 
 int main()
@@ -13,5 +12,6 @@ int main()
 	baseController -> start();
 	return 0;
 }
+
 
 

@@ -21,6 +21,7 @@ public:
 	Type getValue();
 	void setValue(Type value);
 	Node * getPointers();
+	void setNext(ArrayNode * next);
 
 };
 
