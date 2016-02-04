@@ -6,7 +6,7 @@
  */
 
 #include "Node.h"
-#include <iostream>
+
 
 template <class Type>
 Node<Type> :: Node()

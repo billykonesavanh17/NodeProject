@@ -8,6 +8,9 @@
 #ifndef MODEL_NODE_H_
 #define MODEL_NODE_H_
 
+#include "ArrayNode.h"
+#include <iostream>
+
 template <class Type>
 class Node
 {
@@ -21,8 +24,6 @@ public:
 	Type getValue();
 	void setValue(Type value);
 	Node * getPointers();
-	void setNext(ArrayNode * next);
-
 };
 
 #endif /* MODEL_NODE_H_ */

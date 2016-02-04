@@ -8,7 +8,7 @@
 #ifndef NODECONTROLLER_H_
 #define NODECONTROLLER_H_
 
-#include <iostream>
+
 #include <string>
 #include "../Model/Node.h"
 #include "../Model/Node.cpp"
