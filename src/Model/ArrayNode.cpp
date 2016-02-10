@@ -5,7 +5,6 @@
  *      Author: bkon4208
  */
 
-
 #include "ArrayNode.h"
 
 template<class Type>
@@ -18,7 +17,7 @@ template<class Type>
 ArrayNode<Type>::ArrayNode(const Type& value) : Node<Type>(value)
 {
 	this -> value = value;
-	this -> next = nullptr;
+	this -> next = next;
 
 
 }
