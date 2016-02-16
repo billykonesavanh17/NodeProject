@@ -19,6 +19,8 @@ NodeController::~NodeController()
 
 void NodeController::start()
 {
+	arrayTimer.startTimer();
+
 	for(int index = 0; index < notHipsterInts -> getSize(); index++)
 	{
 		notHipsterInts -> set(index, (23 * index));
@@ -26,8 +28,10 @@ void NodeController::start()
 
 	for(int index = 0; index < notHipsterInts -> getSize(); index++)
 	{
-		cout << "notHipsterIns at index " << index << " contains " << notHipsterInts -> get(index) << endl
+		cout << "notHipsterIns at index " << index << " contains " << notHipsterInts -> get(index) << endl;
 	}
 
+	arrayTimer.stopTimer();
+	arrayTimer.displayTimerInformation();
 }
 

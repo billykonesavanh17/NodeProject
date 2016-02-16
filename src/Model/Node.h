@@ -8,7 +8,6 @@
 #ifndef MODEL_NODE_H_
 #define MODEL_NODE_H_
 
-#include "ArrayNode.h"
 #include <iostream>
 
 template <class Type>

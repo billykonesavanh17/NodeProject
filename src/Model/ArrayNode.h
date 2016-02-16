@@ -18,10 +18,10 @@ private:
 public:
 	ArrayNode();
 	ArrayNode(const Type& value);
-	ArrayNode(const Type& value, ArrayNode * next);
+	ArrayNode(const Type& value, ArrayNode<Type> * next);
 	virtual ~ArrayNode();
-	ArrayNode * getNext();
-	void setNext(ArrayNode * next);
+	ArrayNode<Type> * getNext();
+	void setNext(ArrayNode<Type> * next);
 };
 
 #endif /* MODEL_ARRAYNODE_H_ */
