@@ -35,6 +35,7 @@ CTECArray<Type>::CTECArray(int size)
 	}
 }
 
+//Destructor
 template<class Type>
 CTECArray<Type>::~CTECArray()
 {
@@ -52,12 +53,15 @@ CTECArray<Type>::~CTECArray()
 	delete head;
 }
 
+//Gets the size of the CTECArray.
 template<class Type>
 int CTECArray<Type>::getSize()
 {
 	return this->size;
 }
 
+
+//Gets the value of the node and its position.
 template<class Type>
 Type CTECArray<Type>::get(int position)
 {
