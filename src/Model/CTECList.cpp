@@ -66,6 +66,13 @@ Type CTECList<Type>:: getFromIndex(int index)
 template<class Type>
 Type CTECList<Type>:: removeFromFront()
 {
+	//Create a pointer to what is after head.
+	ArrayNode<Type> * newHead = new ArrayNode<Type>();
+	newHead = head->getNext();
+	//Delete what head is pointing to.
+	delete head;
+	//Set head to the new head.
+	head = newHead;
 
 }
 
