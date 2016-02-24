@@ -95,12 +95,15 @@ Type CTECList<Type>:: removeFromEnd()
 template<class Type>
 Type CTECList<Type>:: removeFromIndex(int index)
 {
-	ArrayNode<Type> * newHead = new ArrayNode<Type>();
-	newHead = head -> getNext();
-	for(int index = 0; index < size; index++)
-	{
+	Type returnValue;
 
-	}
+	assert(size > 0);
+	assert(index >= 0);
+	assert(index < size);
+	assert(size > 0 && index >= 0 && index < size); // same as the three above
+
+
+	return returnValue;
 }
 
 template<class Type>
