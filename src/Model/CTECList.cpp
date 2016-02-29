@@ -25,19 +25,46 @@ CTECList<Type>::~CTECList()
 template<class Type>
 int CTECList<Type>:: getSize()
 {
-
+	return size;
 }
 
 template<class Type>
 void CTECList<Type>:: addToFront(const Type& value)
 {
+	ArrayNode<Type> * newNode;
 
+	newNode = new ArrayNode<Type>;
+	newNode -> value = value; //store the new value in the node
+	newNode -> next = head; //insert newNode before first
+	head = newNode; //make first point to the actual first node
+	size++; // increment count
+	if(end == NULL) // If the list was empty, newNode is also the last node in the list
+	{
+		end = newNode;
+	}
 }
 
 template<class Type>
 void CTECList<Type>:: addToEnd(const Type& value)
 {
+	ArrayNode<Type> * newNode;
 
+	newNode = new ArrayNode<Type>;
+	newNode -> value = value;
+	newNode -> next = NULL;
+
+	if(head == NULL) //If the list is empty, newNode is both the first and last node
+	{
+		head = newNode;
+		end = newNode;
+		size++;
+	}
+	else //The list is not empty, insert newNode after last
+	{
+		end -> next = newNode; //Insert newNode after last
+		end = newNode; //Make last point to the actual last node in the list
+		size++;
+	}
 }
 
 template<class Type>
@@ -49,13 +76,17 @@ void CTECList<Type>:: addAtIndex(int index, const Type& value)
 template<class Type>
 Type CTECList<Type>:: getFront()
 {
+	assert(head != NULL);
 
+	return head -> value; //return the info of the first node
 }
 
 template<class Type>
 Type CTECList<Type>:: getEnd()
 {
+	assert(end != NULL);
 
+	return end -> value; //return the info of the last node
 }
 
 template<class Type>
@@ -91,11 +122,21 @@ Type CTECList<Type>:: removeFromFront()
 template<class Type>
 Type CTECList<Type>:: removeFromEnd()
 {
+	assert(size > 0);
 	Type thingToRemove;
+
+	ArrayNode<Type> * newHead = new ArrayNode<Type>();
+	newHead = head->getNext();
+
 	//Loop over size
 	//or
 	//Loop until getNext()->getNext() == nullptr.
 	//Before return the variable call calculateSize().
+	while(head -> getNext() -> getNext() != nullptr)
+	{
+
+	}
+
 
 	this -> calculateSize();
 	return thingToRemove;
