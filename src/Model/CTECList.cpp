@@ -106,9 +106,18 @@ Type CTECList<Type>:: getFront()
 template<class Type>
 Type CTECList<Type>:: getEnd()
 {
+	Type thingToGet;
 	assert(end != NULL);
+	ArrayNode<Type> * current = head;
+		for(int spot = 0; spot < size -1; spot++)
+		{
+			current = current -> getNext();
+		}
 
-	return end -> value; //return the info of the last node
+
+			end = current;
+			return thingToGet;
+
 
 }
 
