@@ -57,20 +57,41 @@ void CTECList<Type>:: addToEnd(const Type& value)
 	{
 		head = newNode;
 		end = newNode;
-		size++;
+		this -> calculateSize();
 	}
 	else //The list is not empty, insert newNode after last
 	{
 		end -> next = newNode; //Insert newNode after last
 		end = newNode; //Make last point to the actual last node in the list
-		size++;
+		this -> calculateSize();
 	}
 }
 
 template<class Type>
 void CTECList<Type>:: addAtIndex(int index, const Type& value)
 {
+	Type thingToAdd;
+		assert(size > 0 && index >= 0 && index < size);
 
+		ArrayNode<Type> * previous, next;
+			if(index == 0)
+			{
+				thingToAdd = addToFront();
+			}
+			else if(index == size - 1)
+			{
+				thingToAdd = addToEnd();
+			}
+			else
+			{
+				for(int spot = 0; spot < index + 1; spot++)
+				{
+
+				}
+			}
+
+			this -> calculateSize();
+			return thingToAdd;
 }
 
 template<class Type>
@@ -79,6 +100,7 @@ Type CTECList<Type>:: getFront()
 	assert(head != NULL);
 
 	return head -> value; //return the info of the first node
+	this -> calculateSize();
 }
 
 template<class Type>
@@ -87,12 +109,34 @@ Type CTECList<Type>:: getEnd()
 	assert(end != NULL);
 
 	return end -> value; //return the info of the last node
+	this -> calculateSize();
 }
 
 template<class Type>
 Type CTECList<Type>:: getFromIndex(int index)
 {
+	Type thingToGet;
+	assert(size > 0 && index >= 0 && index < size);
 
+	ArrayNode<Type> * previous, next;
+		if(index == 0)
+		{
+			thingToGet = getFront();
+		}
+		else if(index == size - 1)
+		{
+			thingToGet = getEnd();
+		}
+		else
+		{
+			for(int spot = 0; spot < index + 1; spot++)
+			{
+
+			}
+		}
+
+		this -> calculateSize();
+		return thingToGet;
 }
 
 template<class Type>
