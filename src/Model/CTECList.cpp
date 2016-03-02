@@ -57,13 +57,13 @@ void CTECList<Type>:: addToEnd(const Type& value)
 	{
 		head = newNode;
 		end = newNode;
-		this -> calculateSize();
+		size++;
 	}
 	else //The list is not empty, insert newNode after last
 	{
 		end -> next = newNode; //Insert newNode after last
 		end = newNode; //Make last point to the actual last node in the list
-		this -> calculateSize();
+		size++;
 	}
 }
 
@@ -76,11 +76,11 @@ void CTECList<Type>:: addAtIndex(int index, const Type& value)
 		ArrayNode<Type> * previous, next;
 			if(index == 0)
 			{
-				thingToAdd = addToFront();
+
 			}
 			else if(index == size - 1)
 			{
-				thingToAdd = addToEnd();
+
 			}
 			else
 			{
@@ -100,7 +100,7 @@ Type CTECList<Type>:: getFront()
 	assert(head != NULL);
 
 	return head -> value; //return the info of the first node
-	this -> calculateSize();
+
 }
 
 template<class Type>
@@ -109,7 +109,7 @@ Type CTECList<Type>:: getEnd()
 	assert(end != NULL);
 
 	return end -> value; //return the info of the last node
-	this -> calculateSize();
+
 }
 
 template<class Type>
@@ -166,24 +166,47 @@ Type CTECList<Type>:: removeFromFront()
 template<class Type>
 Type CTECList<Type>:: removeFromEnd()
 {
-	assert(size > 0);
-	Type thingToRemove;
-
-	ArrayNode<Type> * newHead = new ArrayNode<Type>();
-	newHead = head->getNext();
-
+	//Check for size == 1 it is a special case
 	//Loop over size
 	//or
 	//Loop until getNext()->getNext() == nullptr.
+	//Grab the value from the last node
+	//set the next to last node as end
+	//delete the old last node
 	//Before return the variable call calculateSize().
-	while(head -> getNext() -> getNext() != nullptr)
-	{
+	assert(size > 0);
+	Type thingToRemove;
 
+	if(size == 1)
+	{
+		thingToRemove = removeFromFront();
+		end = nullptr;
+		calculateSize();
+		return thingToRemove;
+	}
+	else
+	{
+	ArrayNode<Type> * current = head;
+
+	for(int spot = 0; spot < size -1; spot++)
+	{
+		current = current -> getNext();
 	}
 
+//Another way to do this
+//	ArrayNode<Type> * pointer = head;
+//	while(pointer -> getNext() -> getNext() != nullptr)
+//	{
+//		pointer = pointer -> getNext();
+//	}
+
+	thingToRemove = current -> getNext() -> getValue();
+	end = current;
+	delete current -> getnext();
 
 	this -> calculateSize();
 	return thingToRemove;
+	}
 }
 
 template<class Type>
