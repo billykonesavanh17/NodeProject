@@ -272,5 +272,19 @@ void CTECList<Type> :: calculateSize()
 template<class Type>
 Type CTECList<Type>:: set(int index, const Type& value)
 {
+	assert(index < size && index >= 0);
+
+		ArrayNode<Type> * current = head;
+		for (int spot = 0; spot <= index; spot++)
+		{
+			if (spot != index)
+			{
+				current = current->getNext();
+			}
+			else
+			{
+				current->setValue(value);
+			}
+		}
 
 }
