@@ -65,6 +65,13 @@ void CTECList<Type>:: addToFront(const Type& value)
 	calculateSize();
 }
 
+
+/*
+ * 1. Creates new ArrayNode<Type> with the supplied value.
+ * 2. Adds the node to the end.
+ * 3. Updates end.
+ * 4. updates size.
+ */
 template<class Type>
 void CTECList<Type>:: addToEnd(const Type& value)
 {
