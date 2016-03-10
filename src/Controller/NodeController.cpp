@@ -20,7 +20,7 @@ NodeController::~NodeController()
 
 void NodeController :: testLists()
 {
-	numbers -> addToFront(50);
+	numbers -> addToFront(3);
 	numbers -> addToEnd(8);
 	cout << "End should be 8 and is:  " << numbers->getFront() << endl;
 }

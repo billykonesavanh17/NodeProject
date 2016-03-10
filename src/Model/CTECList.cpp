@@ -54,17 +54,8 @@ int CTECList<Type>:: getSize()
 template<class Type>
 void CTECList<Type>:: addToFront(const Type& value)
 {
-	ArrayNode<Type> * newNode;
-
-	newNode = new ArrayNode<Type>(value);
-	//newNode -> value = value; //store the new value in the node
-	newNode -> setNext (head); //insert newNode before first
-	head = newNode; //make first point to the actual first node
-	size++; // increment count
-	if(end == NULL) // If the list was empty, newNode is also the last node in the list
-	{
-		end = newNode;
-	}
+	ArrayNode<Type> * newNode = new ArrayNode<Type>(value, head);
+	head = newNode;
 }
 
 template<class Type>
@@ -120,13 +111,19 @@ void CTECList<Type>:: addAtIndex(int index, const Type& value)
 template<class Type>
 Type CTECList<Type>:: getFront()
 {
+	if(index == 0)
+	{
 	return head -> getValue();
+	}
 }
 
 template<class Type>
 Type CTECList<Type>:: getEnd()
 {
+	if(index == size - 1)
+	{
 	return head -> getValue();
+	}
 }
 
 template<class Type>
