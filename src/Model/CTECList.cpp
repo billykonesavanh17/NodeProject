@@ -51,34 +51,29 @@ int CTECList<Type>:: getSize()
 	return this -> size;
 }
 
+/*
+ * 1. Creates a new ArrayNode with value and head.
+ * 2. Updates head.
+ * 3. Updates size.
+ */
 template<class Type>
 void CTECList<Type>:: addToFront(const Type& value)
 {
 	ArrayNode<Type> * newNode = new ArrayNode<Type>(value, head);
 	head = newNode;
+
+	calculateSize();
 }
 
 template<class Type>
 void CTECList<Type>:: addToEnd(const Type& value)
 {
-	ArrayNode<Type> * newNode;
+	ArrayNode<Type> * newNode = new ArrayNode<Type>(value);
+	end -> setNext(newNode);
+	end = newNode;
 
-	newNode = new ArrayNode<Type>(value);
-	//newNode -> value = value;
-	newNode -> setNext (NULL);
+	calculateSize();
 
-	if(head == NULL) //If the list is empty, newNode is both the first and last node
-	{
-		head = newNode;
-		end = newNode;
-		size++;
-	}
-	else //The list is not empty, insert newNode after last
-	{
-		//end -> next = newNode; //Insert newNode after last
-		end = newNode; //Make last point to the actual last node in the list
-		size++;
-	}
 }
 
 template<class Type>
