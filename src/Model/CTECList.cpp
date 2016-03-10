@@ -16,16 +16,40 @@ CTECList<Type>::CTECList()
 	this->end = nullptr;
 }
 
+/*
+ * 1: Start at head
+ * 2: Iterate over nodes
+ * 3: Update position, then delete
+ * 4: Delete final
+ * 5: reset size, head, end default
+ */
+
 template<class Type>
 CTECList<Type>::~CTECList()
 {
-	// TODO Auto-generated destructor stub
+	ArrayNode<Type> * current = head;
+
+	for(int deleteCount = 0; deleteCount < size; deleteCount++)
+	{
+		ArrayNode<Type> * temp = current;
+
+		current = current -> getNext();
+		head current;
+		delete temp;
+	}
+
+	delete head;
+	head = nullptr;
+	end = nullptr;
+	size = 0;
 }
 
 template<class Type>
 int CTECList<Type>:: getSize()
 {
-	return size;
+	int count = 0;
+	this -> calculateSize();
+	return count;
 }
 
 template<class Type>
