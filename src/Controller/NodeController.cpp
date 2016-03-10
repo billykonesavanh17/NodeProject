@@ -22,7 +22,7 @@ void NodeController :: testLists()
 {
 	numbers -> addToFront(50);
 	numbers -> addToEnd(8);
-	cout << "End should be 8 and is:  " << numbers->getEnd() << endl;
+	cout << "End should be 8 and is:  " << numbers->getFront() << endl;
 }
 
 void NodeController::start()

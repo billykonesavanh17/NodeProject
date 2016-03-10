@@ -47,9 +47,8 @@ CTECList<Type>::~CTECList()
 template<class Type>
 int CTECList<Type>:: getSize()
 {
-	int count = 0;
 	this -> calculateSize();
-	return count;
+	return this -> size;
 }
 
 template<class Type>
@@ -121,28 +120,13 @@ void CTECList<Type>:: addAtIndex(int index, const Type& value)
 template<class Type>
 Type CTECList<Type>:: getFront()
 {
-	assert(head != NULL);
-
-	return head -> value; //return the info of the first node
-
+	return head -> getValue();
 }
 
 template<class Type>
 Type CTECList<Type>:: getEnd()
 {
-	Type thingToGet;
-	assert(end != NULL);
-	ArrayNode<Type> * current = head;
-		for(int spot = 0; spot < size -1; spot++)
-		{
-			current = current -> getNext();
-		}
-
-
-			end = current;
-			return thingToGet;
-
-
+	return head -> getValue();
 }
 
 template<class Type>
