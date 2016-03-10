@@ -34,7 +34,7 @@ CTECList<Type>::~CTECList()
 		ArrayNode<Type> * temp = current;
 
 		current = current -> getNext();
-		head current;
+		head = current;
 		delete temp;
 	}
 
@@ -57,9 +57,9 @@ void CTECList<Type>:: addToFront(const Type& value)
 {
 	ArrayNode<Type> * newNode;
 
-	newNode = new ArrayNode<Type>;
-	newNode -> value = value; //store the new value in the node
-	newNode -> next = head; //insert newNode before first
+	newNode = new ArrayNode<Type>(value);
+	//newNode -> value = value; //store the new value in the node
+	newNode -> setNext (head); //insert newNode before first
 	head = newNode; //make first point to the actual first node
 	size++; // increment count
 	if(end == NULL) // If the list was empty, newNode is also the last node in the list
@@ -73,9 +73,9 @@ void CTECList<Type>:: addToEnd(const Type& value)
 {
 	ArrayNode<Type> * newNode;
 
-	newNode = new ArrayNode<Type>;
-	newNode -> value = value;
-	newNode -> next = NULL;
+	newNode = new ArrayNode<Type>(value);
+	//newNode -> value = value;
+	newNode -> setNext (NULL);
 
 	if(head == NULL) //If the list is empty, newNode is both the first and last node
 	{
@@ -85,7 +85,7 @@ void CTECList<Type>:: addToEnd(const Type& value)
 	}
 	else //The list is not empty, insert newNode after last
 	{
-		end -> next = newNode; //Insert newNode after last
+		//end -> next = newNode; //Insert newNode after last
 		end = newNode; //Make last point to the actual last node in the list
 		size++;
 	}
