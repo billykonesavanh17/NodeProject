@@ -22,7 +22,10 @@ void NodeController :: testLists()
 {
 	numbers -> addToFront(3);
 	numbers -> addToEnd(8);
-	cout << "End should be 8 and is:  " << numbers->getFront() << endl;
+	numbers -> addAtIndex(2, 3);
+	cout << "Front should be 3 and is:  " << numbers->getFront() << endl;
+	cout << "End should be 8 and is:  " << numbers->getEnd() << endl;
+	cout << "At spot 3 " << numbers->getFromIndex(2) << endl;
 }
 
 void NodeController::start()
