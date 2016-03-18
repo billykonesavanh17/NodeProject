@@ -91,11 +91,14 @@ void CTECList<Type>:: addAtIndex(int index, const Type& value)
 		ArrayNode<Type> * previous, next;
 			if(index == 0)
 			{
-
+				ArrayNode<Type> * newNode = new ArrayNode<Type>(value, head);
+					head = newNode;
 			}
 			else if(index == size - 1)
 			{
-
+				ArrayNode<Type> * newNode = new ArrayNode<Type>(value);
+				end -> setNext(newNode);
+				end = newNode;
 			}
 			else
 			{
@@ -120,10 +123,10 @@ Type CTECList<Type>:: getFront()
 template<class Type>
 Type CTECList<Type>:: getEnd()
 {
-	if(index == size - 1)
-	{
-	return head -> getValue();
-	}
+	//if(index == size - 1)
+	//{
+//	return head -> getValue();
+	//}
 }
 
 template<class Type>
