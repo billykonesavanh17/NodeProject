@@ -25,7 +25,14 @@ void NodeController :: testLists()
 	numbers -> addAtIndex(2, 3);
 	cout << "Front should be 3 and is:  " << numbers->getFront() << endl;
 	cout << "End should be 8 and is:  " << numbers->getEnd() << endl;
-	cout << "At spot 3 " << numbers->getFromIndex(2) << endl;
+	cout << "At spot 3 " << numbers->getFromIndex(2) << " should be 3" <<endl;
+	numbers -> removeFromFront();
+	cout << "Front is now " << numbers -> getFront() << endl;
+	numbers -> removeFromEnd();
+	cout << "End is now " << numbers -> getEnd() << endl;
+	numbers -> removeFromIndex(0);
+	cout << "At spot one it is " << numbers -> getFromIndex(1) << endl;
+
 }
 
 void NodeController::start()

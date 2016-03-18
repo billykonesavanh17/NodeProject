@@ -86,7 +86,6 @@ void CTECList<Type>:: addToEnd(const Type& value)
 template<class Type>
 void CTECList<Type>:: addAtIndex(int index, const Type& value)
 {
-	Type thingToAdd;
 		assert(size > 0 && index >= 0 && index < size);
 
 		ArrayNode<Type> * previous, next;
@@ -107,7 +106,6 @@ void CTECList<Type>:: addAtIndex(int index, const Type& value)
 			}
 
 			this -> calculateSize();
-			return thingToAdd;
 }
 
 template<class Type>
@@ -218,7 +216,7 @@ Type CTECList<Type>:: removeFromEnd()
 
 	thingToRemove = current -> getNext() -> getValue();
 	end = current;
-	delete current -> getnext();
+	delete current -> getNext();
 
 	this -> calculateSize();
 	return thingToRemove;
